@@ -20,6 +20,11 @@ export class HomePage {
     private cityStorageService: CityStorageService
   ) { }
 
+  async ionViewDidEnter() {
+    const storageCities = await this.cityStorageService.getSotageCities();
+    this.cities = storageCities || [];
+  }
+
   async onSearch(query: string) {
     try {
       this.errorMessage = null;
