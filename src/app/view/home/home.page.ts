@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { City } from '../../domain/entities/city.model';
 import { SearchCityService } from '../../domain/services/search-city.service';
+import { CityStorageService } from '../../domain/services/city-storage.service';
 
 @Component({
   selector: 'app-home',
@@ -15,7 +16,8 @@ export class HomePage {
 
   constructor(
     private readonly cityService: SearchCityService,
-    private readonly router: Router
+    private readonly router: Router,
+    private cityStorageService: CityStorageService
   ) { }
 
   async onSearch(query: string) {
@@ -28,6 +30,7 @@ export class HomePage {
   }
 
   async onSelect(city: City) {
+    this.cityStorageService.addNewCity(city);
     await this.router.navigateByUrl(`/weather/${city.id}`, { replaceUrl: true })
   }
 
