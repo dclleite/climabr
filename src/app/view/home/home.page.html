@@ -18,7 +18,9 @@
         <app-error-message *ngIf="errorMessage" [message]="errorMessage"></app-error-message>
 
         <ion-list lines="none" *ngIf="!errorMessage">
-          <ion-text *ngIf="!searchInput.value && cities.length" color="medium">Pesquisas recentes</ion-text>
+          <ion-item *ngIf="!searchInput.value && cities.length" >
+            <ion-label color="medium">Pesquisas recentes</ion-label>
+          </ion-item>
           <ion-item detail button *ngFor="let city of cities" (click)="onSelect(city)">
             <ion-label>
               <h2>{{ city.name }}</h2>
@@ -27,7 +29,6 @@
               </ion-text>
             </ion-label>
           </ion-item>
-
         </ion-list>
       </ion-col>
     </ion-row>

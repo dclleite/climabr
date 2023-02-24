@@ -30,7 +30,11 @@ export const openWeatherConfig = {
 }
 ```
 
-Para executar a aplicação, digite o comando abaixo no terminal:
+Para executar a aplicação, instale o cli do ionic:
+
+`npm i -g @ionic/cli`
+
+e digite o comando abaixo no terminal:
 
 `ionic serve`
 

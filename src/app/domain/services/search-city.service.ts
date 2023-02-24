@@ -1,4 +1,4 @@
-import { City } from "../entities/city.model";
+import { City } from "@entities/city.model";
 import { CityNotFoundError } from "../errors/city-not-found.error";
 import { CityRepository } from "./protocols/city-repository";
 

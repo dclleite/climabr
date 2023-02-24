@@ -3,11 +3,11 @@ import { CityRepository } from "src/app/domain/services/protocols/city-repositor
 import { cities } from "./br-cities";
 
 export class LocalCityRepository extends CityRepository {
-    
+
     async getAll(): Promise<City[]> {
         return this.toCollection(cities);
     }
-    
+
     async getById(id: number): Promise<City> {
         const result = cities.find(
             (data: any) => data.id === id
@@ -33,5 +33,4 @@ export class LocalCityRepository extends CityRepository {
             (dataItem: any) => this.toEntity(dataItem)
         )
     }
-
 }

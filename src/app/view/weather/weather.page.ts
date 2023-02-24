@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { LoadingController, ModalController } from '@ionic/angular';
-import { City } from '../../domain/entities/city.model';
-import { Weather } from '../../domain/entities/weather.model';
-import { LoadWeatherService } from '../../domain/services/load-weather.service';
-import { SearchCityService } from '../../domain/services/search-city.service';
+import { City } from '@entities/city.model';
+import { Weather } from '@entities/weather.model';
+import { LoadWeatherService } from '@services/load-weather.service';
+import { SearchCityService } from '@services/search-city.service';
 import { WeatherDetailsComponent } from './components/weather-details/weather-details.component';
 
 @Component({
@@ -25,7 +25,7 @@ export class WeatherPage {
   errorMessage = null
   city: City
   weather: Weather
-  
+
   async ionViewDidEnter() {
     try {
       await this.presentLoading();
@@ -39,7 +39,7 @@ export class WeatherPage {
       await this.loadingCtrl.dismiss();
     }
   }
-  
+
   async onDetails() {
     const modal = await this.modalCtrl.create({
       component: WeatherDetailsComponent,

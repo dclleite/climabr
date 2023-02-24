@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { City } from '../../domain/entities/city.model';
-import { SearchCityService } from '../../domain/services/search-city.service';
-import { CityStorageService } from '../../domain/services/city-storage.service';
+import { City } from '@entities/city.model';
+import { SearchCityService } from '@services/search-city.service';
+import { CityStorageService } from '@services/city-storage.service';
 
 @Component({
   selector: 'app-home',
@@ -10,7 +10,6 @@ import { CityStorageService } from '../../domain/services/city-storage.service';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
-
   errorMessage = null;
   cities: City[] = [];
 
@@ -28,7 +27,9 @@ export class HomePage {
   async onSearch(query: string) {
     try {
       this.errorMessage = null;
-      this.cities = await this.cityService.searchByName(query)
+      this.cities = query
+        ? await this.cityService.searchByName(query)
+        : await this.cityStorageService.getSotageCities();
     } catch (error) {
       this.errorMessage = error.message
     }
@@ -38,5 +39,4 @@ export class HomePage {
     this.cityStorageService.addNewCity(city);
     await this.router.navigateByUrl(`/weather/${city.id}`, { replaceUrl: true })
   }
-
 }

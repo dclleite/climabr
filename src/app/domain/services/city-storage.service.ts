@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { City } from "../entities/city.model";
-import { StorageService } from './storage.service';
+import { City } from "@entities/city.model";
+import { StorageService } from '@services/storage.service';
 
 const CITY_STORAGE_KEY = '@city-storage-key'
 
