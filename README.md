@@ -38,4 +38,9 @@ e digite o comando abaixo no terminal:
 
 `ionic serve`
 
+# Membros do grupo
+- Eduardo Carvalho Leite
+- Luiz Carlos Bessa de Lima
+- Taiane Rodrigues de Sousa
+
 Enjoy!
